@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cuestionario ODS 5</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            color: #333;
+            padding: 20px;
+            text-align: center;
+            background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Sustainable_Development_Goal_5.svg/1200px-Sustainable_Development_Goal_5.svg.png');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 30%;
+        }
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #e91e63;
+            text-shadow: 2px 2px #fff;
+        }
+        label {
+            font-size: 1.3em;
+            display: block;
+            margin: 15px 0;
+        }
+        input {
+            margin: 10px;
+            transform: scale(1.2);
+        }
+        .resultado {
+            margin-top: 20px;
+            font-size: 1.8em;
+            font-weight: bold;
+            padding: 20px;
+            border-radius: 10px;
+            display: inline-block;
+        }
+        .pregunta {
+            display: none;
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+            margin-bottom: 20px;
+        }
+        #quizForm {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Cuestionario sobre el ODS 5</h1>
+    <form id="quizForm">
+        <div class="pregunta" id="pregunta1">
+            <label>1. ¿Cuál es el objetivo principal del ODS 5?</label>
+            <input type="radio" name="q1" value="1">Lograr la igualdad de género<br>
+            <input type="radio" name="q1" value="2">Eliminar la pobreza<br>
+            <input type="radio" name="q1" value="3">Asegurar la educación de calidad<br>
+        </div>
+        <div class="pregunta" id="pregunta2">
+            <label>2. ¿Qué significa ODS?</label>
+            <input type="radio" name="q2" value="1">Objetivos de Desarrollo Sostenible<br>
+            <input type="radio" name="q2" value="2">Organización de Desarrollo Sostenible<br>
+            <input type="radio" name="q2" value="3">Objetivos de Desarrollo Social<br>
+        </div>
+        <div class="pregunta" id="pregunta3">
+            <label>3. ¿Qué porcentaje de mujeres en el mundo son víctimas de violencia de género?</label>
+            <input type="radio" name="q3" value="1">20%<br>
+            <input type="radio" name="q3" value="2">30%<br>
+            <input type="radio" name="q3" value="3">35%<br>
+        </div>
+        <div class="pregunta" id="pregunta4">
+            <label>4. ¿Qué país es líder en la igualdad de género según el informe del Foro Económico Mundial?</label>
+            <input type="radio" name="q4" value="1">Islandia<br>
+            <input type="radio" name="q4" value="2">Suecia<br>
+            <input type="radio" name="q4" value="3">Noruega<br>
+        </div>
+        <div class="pregunta" id="pregunta5">
+            <label>5. ¿Cuál es uno de los indicadores del ODS 5?</label>
+            <input type="radio" name="q5" value="1">Proporción de mujeres en puestos de liderazgo<br>
+            <input type="radio" name="q5" value="2">Número de escuelas<br>
+            <input type="radio" name="q5" value="3">Tasa de alfabetización<br>
+        </div>
+        <div class="pregunta" id="pregunta6">
+            <label>6. ¿Qué tipo de violencia se busca eliminar según el ODS 5?</label>
+            <input type="radio" name="q6" value="1">Violencia física<br>
+            <input type="radio" name="q6" value="2">Violencia emocional<br>
+            <input type="radio" name="q6" value="3">Todas las anteriores<br>
+        </div>
+        <div class="pregunta" id="pregunta7">
+            <label>7. ¿Cuál de las siguientes afirmaciones es cierta sobre el ODS 5?</label>
+            <input type="radio" name="q7" value="1">Promueve el empoderamiento económico de las mujeres<br>
+            <input type="radio" name="q7" value="2">Busca la reducción de la población<br>
+            <input type="radio" name="q7" value="3">Fomenta el aumento de la violencia de género<br>
+        </div>
+        <div class="pregunta" id="pregunta8">
+            <label>8. ¿Cuántos objetivos de desarrollo sostenible hay en total?</label>
+            <input type="radio" name="q8" value="1">15<br>
+            <input type="radio" name="q8" value="2">17<br>
+            <input type="radio" name="q8" value="3">19<br>
+        </div>
+        <div class="pregunta" id="pregunta9">
+            <label>9. ¿Qué tipo de salud se promueve en el ODS 5?</label>
+            <input type="radio" name="q9" value="1">Salud mental<br>
+            <input type="radio" name="q9" value="2">Salud sexual y reproductiva<br>
+            <input type="radio" name="q9" value="3">Salud general<br>
+        </div>
+        <div class="pregunta" id="pregunta10">
+            <label>10. ¿Qué aspecto de la educación se considera importante en el ODS 5?</label>
+            <input type="radio" name="q10" value="1">Educación para todos<br>
+            <input type="radio" name="q10" value="2">Educación solo para hombres<br>
+            <input type="radio" name="q10" value="3">Educación para la violencia<br>
+        </div>
+    </form>
+    
+    <div id="resultadoContainer" class="resultado"></div>
+    
+    <script>
+        let preguntaActual = 1;
+        document.getElementById("pregunta" + preguntaActual).style.display = "block";
+        
+        function nextQuestion(numeroPregunta) {
+            document.getElementById("pregunta" + numeroPregunta).style.display = "none";
+            preguntaActual++;
+            if (preguntaActual <= 10) {
+                document.getElementById("pregunta" + preguntaActual).style.display = "block";
+            } else {
+                calcularNota();
+            }
+        }
+        
+        function calcularNota() {
+            let resultadoContainer = document.getElementById("resultadoContainer");
+            let nota = 0;
+            
+            // Respuestas correctas
+            const respuestasCorrectas = [1, 1, 3, 1, 1, 3, 1, 2, 2, 1]; // Agregada la respuesta correcta para la pregunta 10
+            
+            for (let i = 1; i <= 10; i++) {
+                let radios = document.getElementsByName("q" + i);
+                for (let radio of radios) {
+                    if (radio.checked && parseInt(radio.value) === respuestasCorrectas[i - 1]) {
+                        nota++;
+                    }
+                }
+            }
+            
+            resultadoContainer.textContent = "Tu nota es: " + nota + "/10";
+            resultadoContainer.style.display = "block";
+            
+            if (nota === 10) {
+                document.body.style.backgroundColor = "#4caf50"; // Verde para nota perfecta
+                resultadoContainer.style.backgroundColor = "#4caf50";
+                resultadoContainer.style.color = "#fff";
+            } else {
+                document.body.style.backgroundColor = "#f44336"; // Rojo si la nota no es perfecta
+                resultadoContainer.style.backgroundColor = "#f44336";
+                resultadoContainer.style.color = "#fff";
+            }
+        }
+        
+        // Mostrar la siguiente pregunta al hacer clic en una respuesta
+        document.querySelectorAll('input[type="radio"]').forEach(radio => {
+            radio.addEventListener('click', () => nextQuestion(preguntaActual));
+        });
+    </script>
+</body>
+</html>
